@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+
+	
+	{% block content %}
+	<div class="post">
+		<div class="container">
+			
+			{% if instance.image %}
+			<img src="{{ instance.image.url }}" class="img-fluid" alt="cover photo">
+			{% endif %}
+			<div class="post-title">
+				<h2>{{ instance.title}}</h2>
+				<h5>{{ instance.timestamp}}</h5>	
+				<div class="share-link" >
+					<a href="https://www.facebook.com/sharer/sharer.php?u={{ request.build_absolute_uri }}/">
+					<i class="fa fa-facebook-square"></i>
+					</a>
+					<a href="https://twitter.com/home?status={{ share_string }}%20{{ request.build_absolute_uri }}">
+					<i class="fa fa-twitter"></i>
+					</a>
+					<a href='https://plus.google.com/share?url=http://codingforentrepreneurs.com'>
+					<a href="https://www.linkedin.com/shareArticle?mini=true&url={{ request.build_absolute_uri }}&title={{instance.title}}&summary={{ share_string}}&source={{ request.build_absolute_uri }}">
+					<i class="fa fa-linkedin"></i>
+					</a>
+				</div>		
+			</div>
+			<div class="post-content">
+				
+				<p>{{ instance.content|linebreaks}}</p>	
+				
+			</div>
+
+			<a href="../list"> back to the list </a>
+
+
+		</div>
+	</div>
+
+	
+	
+	
+	{% endblock content %}
+	

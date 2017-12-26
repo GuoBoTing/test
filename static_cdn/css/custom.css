@@ -1,0 +1,69 @@
+/* Blog-list */
+
+.card{
+	margin-right: auto;
+	margin-left: auto;
+}
+.card-image{
+	padding-top: calc(100%/2)
+}
+
+.divider{
+
+    margin: 30px auto 60px auto;
+    text-align: center;
+}
+
+.dot1, .dot2{
+    margin-right: 30px;
+}
+
+.dot1, .dot2, .dot3{
+    display: inline-block;
+    width: 4px;
+    height: 4px;
+    background-color: #242424;
+    -webkit-border-radius: 50%;
+}
+.pagination{
+	display: inline-block;
+	margin: 0 auto;
+}
+
+/* end Blog-list */
+
+/* Blog-detail */
+.about_this_site{
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 50px;
+}
+.about_this_site-title{
+    text-align: center;
+    color: #242424;
+    font-size: 1.1em;
+    text-transform: uppercase;
+    margin: 0 0 10px 0;
+}
+
+.share-link a{
+	text-decoration: none;
+}
+.share-link a i: nth-child(1){
+	
+}
+
+
+.post-content{
+	padding-right: 150px; 
+}
+@media(max-width: 768px){
+	.post-content{
+		padding-right: 0px; 
+	}
+}
+
+
+
+
+

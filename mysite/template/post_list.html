@@ -1,0 +1,66 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="blog-list">
+	<div class="container">
+		<div class="row">
+			<div class="about_this_site" style="width: 40rem;">
+				 <div class="about_this_site-title"> - About this site - </div>	
+				 <p>This website is the 7th version of my personal portfolio site since my first one in 2011. It is optimized for desktops, tablets and smartphones. Everything you see here was <span>designed</span> and <span>hand-coded</span> by me.</p>
+                 <p>I'm a millennial (aka generation Y) who is no stranger to smart devices but still remember CRT monitors and floppy disks. This means that I, and people in my generation, experienced first-hand how the bullhorns got passed around from media conglomerates to bloggers to social media on the Internet. Along the way, this site is like my spiritual resort in the era of information overload, where I can always return to examine what went well, what didn't and everything in between.</p>
+                 <div class="divider">
+					<div class="dot1"></div>
+					<div class="dot2"></div>
+					<div class="dot3"></div>	
+				</div>   
+			</div>
+
+
+			<!-- start the card -->
+			<div class="post-list col-sm-12 ">
+				{% for obj in page_objects %}
+				<div class="card" style="width: 40rem;">
+					{% if obj.image %}
+	  				<img class="img-fluid img-thumbnail" src="{{ obj.image.url }}" alt="">
+	  				{% endif %}
+	  				<div class="card-body">
+					    <h4 class="card-title">{{ obj.title }}</h4>
+					    <p class="time">{{ obj.timestamp }}</p>
+					    <p class="card-text">{{ obj.content|linebreaks|truncatechars:120 }}</p>
+					    <a href="{{ obj.get_absolute_url }}" class="btn btn-primary">Read More</a>
+		  			</div>
+				</div>
+				<div class="divider">
+					<div class="dot1"></div>
+					<div class="dot2"></div>
+					<div class="dot3"></div>	
+				</div>
+				{% endfor %}
+			</div>
+			<!-- end the card -->
+
+			<div class="pagination">
+    			<span class="step-links">
+				{% if page_objects.has_previous %}
+	           	<a href="?page=1">&laquo; first</a>
+	            <a href="?page={{ page_objects.previous_page_number }}">previous</a>
+        		{% endif %}
+
+		        <span class="current">
+		        Page {{ page_objects.number }} of {{ page_objects.paginator.num_pages }}.
+		        </span>
+
+		        {% if page_objects.has_next %}
+		        <a href="?page={{ page_objects.next_page_number }}">next</a>
+		        <a href="?page={{ page_objects.paginator.num_pages }}">last &raquo;</a>
+        		{% endif %}
+    			</span>
+			</div>
+		</div>			
+	</div>		
+</div>
+		
+
+		
+
+{% endblock content %}
